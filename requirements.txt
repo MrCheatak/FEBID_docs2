@@ -1,0 +1,22 @@
+sphinx
+sphinx-rtd-theme
+pydata-sphinx-theme
+sphinx-autodoc-typehints
+nbsphinx
+ipython
+jupytext
+jupyter
+matplotlib
+numpy
+furo
+numpy<1.23.0
+pyvista
+pandas
+ruamel.yaml
+cython
+openpyxl
+tqdm
+pyqt5
+pyaml
+numexpr_mod
+-e .
