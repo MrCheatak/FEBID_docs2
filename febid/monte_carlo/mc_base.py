@@ -35,16 +35,16 @@ class Element:
 
 
 class MC_Sim_Base(ABC):
-    cell_dim:int
-    grid: np.ndarray
-    surface: np.ndarray
-    s_neighb: np.ndarray
-    deponat: Element
-    substrate:Element
-    materials: list
-
-    NA = 6.022141E23  # Avogadro number
-    elementary_charge = 1.60217662e-19  # Coulon
+    def __init__(self, *args):
+        cell_dim:int
+        grid: np.ndarray
+        surface: np.ndarray
+        s_neighb: np.ndarray
+        deponat: Element
+        substrate:Element
+        materials: list
+        NA = 6.022141E23  # Avogadro number
+        elementary_charge = 1.60217662e-19  # Coulon
 
     @property
     def shape(self):

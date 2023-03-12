@@ -1,16 +1,41 @@
-Diffusion equation solution
+Diffusion
 ============================
+Surface diffusion plays an important role in precursor coverage replenishment at the beam interaction region (BIR).
+
+.. figure:: _images/diffusive_flow.png
+    :scale: 50 %
+    :align: right
+
+    Diffusive flow
+
+In the discretised simulation volume, diffusion occurs on a monolayer of cells that separates solid and empty cell
+domains. It is the same cell layer that contains information about surface precursor coverage.
+
+Solution of the diffusion equation is a subroutine of the reaction-diffusion equation solution. Each time the solution
+occurs, it outputs a profile of local precursor changes induced by the diffusion process and then added to the precursor
+coverage profile.
+
+Ghost cells
+""""""""""""""""""""""""""""""""""
+.. image:: _images/ghost_cells.png
+    :scale: 60 %
+    :align: right
+
+In order to enable diffusion exclusively along the surface a so-called ‘ghost cell’ method is used.
+The thin layer of surface cells is ultimately contained between the void and solid cells.
+The solid and void cells that neighbor a surface cell are marked as ghost cells, encapsulating the whole surface.
+During the application of the stencil operator, the ghost cells mimic the value in the current cell. This artificially
+creates a condition of zero concentration difference and consequently zero diffusive flux.
+
 
 Diffusion is described via a parabolic PDE equation and thus
-require a special numerical solution.
+requires a special numerical solution.
 
-Characteristic time of the diffusion makes it feasible to use the simplest approach – the FTCS scheme. In the actual
-version of the package, the default for diffusion is FTCS.
-The method are described in detail in the PDE section and here we briefly overview the solutions for each problem.
+Characteristic time of the diffusion makes it feasible to use the simplest approach – the FTCS scheme.
+
 
 Numerical solution
 """""""""""""""""""
-
 The diffusion equation:
 
 :math:`\frac{\partial T}{\partial t}=D\nabla^2T`,
@@ -53,7 +78,7 @@ Using the derived expression, the state of the system at the next time step can 
     :align: right
     :scale: 20 %
 
-    Stencil operator.
+    3D Stencil operator
 
 From analysing the expression, it is evident that it sums every neighbor and subtracts the value of the central cell.
 Such operation, that is applied to all cells in the same manner is called a `stencil`.
@@ -70,14 +95,5 @@ while semi-implicit Crank-Nicholson and implicit Euler methods are unconditional
 
     Nevertheless Crank-Nicholson is unconditionally stable, meaning it works for any time step, it may suffer
     oscillations. At the same time, implicit Euler is immune to oscillations, but has only 1st-order accuracy in time.
-
-Surface diffusion and ghost cells
-""""""""""""""""""""""""""""""""""
-
-In order to enable diffusion exclusively along the surface a so-called ‘ghost cell’ method is used.
-The thin layer of surface cells is ultimately contained between the void and solid cells.
-The solid and void cells that neighbor a surface cell are marked as ghost cells, encapsulating the whole surface.
-During the application of the stencil operator, the ghost cells mimic the value in the current cell. This artificially
-creates a condition of zero concentration difference and consequently zero diffusive flux.
 
 

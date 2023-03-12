@@ -5,7 +5,7 @@ Introduction
 -------------
 Simulation of the FEBID process written in Python.
 FEBID stands for Focused Electron Beam Induced Deposition, a variation of a CVD (chemical vapor deposition) process.
-It uses volatile organo-metallic molecules (precursor) as material and a controlled electron beam
+It uses volatile organometallic molecules (precursor) as material and a controlled electron beam
 to selectively deposit material on a substrate.
 
 Simulation base features:
@@ -21,27 +21,18 @@ Installation
 ---------------
 The simulation requires Python 3.7 or later.
 
-For Windows installation, `Microsoft C++ Build tools <https://visualstudio.microsoft.com/visual-cpp-build-tools/>`_
-has to be installed.
+Package is available via PyPi: :code:`pip install febid`
 
-Before getting to the installation of the package, a compiler has to be configured. The package contains *Cython*
-modules with *OpenMP*, that are compiled during installation. For that *LLVM* is advised for installing:
+Alternatively, it can be installed directly from GitHub via pip, although that will require compilation of some modules:
 
-On Macs: ``brew install llvm``
+:code:`pip install git+https://github.com/MrCheatak/FEBID_py`
 
-On Linux: ``sudo apt-get install llvm``
-
-Next, there are two ways to install the package:
-
-1. Clone the repository, choose virtual environment and install package locally with ``pip install .``
-2. Alternatively, it can be installed from github via pip directly:
-
-    ``pip install git+https://github.com/MrCheatak/FEBID_py.git#febid``
+:tip: Linux user may need to manually install Tkinter, as it is not always shipped with the default installation of Python.
 
 
 Running the first simulation
 -----------------------------
-In order to run the first simulation, *Paramenets.yml* and *Me3PtCpMe.yml* parameter files in the
+In order to run the first simulation, *Parameters.yml* and *Me3PtCpMe.yml* parameter files in the
 `Examples <https://github.com/MrCheatak/FEBID_py/tree/master/Examples>`_ folder are needed.
 As the installation finishes, run ``python -m febid``, which will show the main control panel:
 

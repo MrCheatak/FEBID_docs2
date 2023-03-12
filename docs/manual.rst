@@ -8,10 +8,10 @@ Contents:
 
 
     interface
-    space
     settings_file
     precursor_file
     series
+..    space
 
 
 
