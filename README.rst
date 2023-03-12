@@ -1,20 +1,38 @@
-Getting started
-================
+=========================
+FEBID Simulation package
+=========================
 
-Introduction
--------------
-Simulation of the FEBID process written in Python.
-FEBID stands for Focused Electron Beam Induced Deposition, a variation of a CVD (chemical vapor deposition) process.
+:Author: Alexander Kuprava & Michael Huth
+:Maintainer: Alexander Kuprava
+:Contact: alexkuparava@gmail.com
+:URL: https://github.com/mrcheatak/febid_py
+:Documentation: http://febid.readthedocs.io
+:PyPi: |version|
+:ReadTheDocs: |docs|
+:Code quality: |codiga|
+
+.. |version| image:: https://badge.fury.io/py/febid.svg
+    :target: https://badge.fury.io/py/febid
+.. |docs| image:: https://readthedocs.org/projects/febid-docs2/badge/?version=latest
+    :target: https://febid.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
+.. |codiga| image:: https://api.codiga.io/project/35990/status/svg
+    :target: https://app.codiga.io/hub/project/35990/FEBID_py
+
+
+What is FEBID Simulation?
+--------------------------
+FEBID stands for Focused Electron Beam Induced Deposition – a direct-write nanofabrication process
+similar to 3D printing.
 It uses volatile organometallic molecules (precursor) as material and a controlled electron beam
 to selectively deposit material on a substrate.
 
-Simulation base features:
+Simulation provides capabilities of running the process virtually by providing material properties
+and deposition conditions. The result is a 3D model of the fabricated structure along with data collected
+during the simulation.
 
-#. Continuum model
-#. Enabled diffusion
-#. Enabled temperature effects
-#. Electron-matter interaction via Monte Carlo simulation
-#. No gas dynamics implications
+The package features an separate Monte Carlo electron beam — matter interaction module.
+By using the same input data, it is possible to inspect electron scattering profile and heat source `in-situ`.
 
 
 Installation
@@ -27,18 +45,17 @@ Alternatively, it can be installed directly from GitHub via pip, although that w
 
 :code:`pip install git+https://github.com/MrCheatak/FEBID_py`
 
-.. tip:: Linux user may need to manually install Tkinter, as it is not always shipped with the default installation of Python.
-
+`Tip`: Linux user may need to manually install Tkinter, as it is not always shipped with the included Python.
 
 Running the first simulation
 -----------------------------
 In order to run the first simulation, *Parameters.yml* and *Me3PtCpMe.yml* parameter files in the
 `Examples <https://github.com/MrCheatak/FEBID_py/tree/master/Examples>`_ folder are needed.
-As the installation finishes, run ``python -m febid``, which will show the main control panel:
+As the installation finishes, run :code:`python -m febid`, which will show the main control panel:
 
-.. image:: _images/main_pannel_febid.png
-    :scale: 50 %
-    :align:
+.. image:: docs/_images/main_panel_febid.png
+    :scale: 25 %
+    :align: right
 
 
 There are three main setup steps that are essential for the simulation: space, pattern and parameters of the
@@ -65,10 +82,16 @@ Beam and precursor:
 Lastly, uncheck all the saving options and enable *Show the process* to watch the growth in real
 time and hit **Start**.
 
-A new window is then shown with a scene containing the substrate. The scene can be rotated and zoomed to get a better
-view angle.
 
-.. important::
+Documentation
+--------------
+Full documentation with interface guide and manual, algorithm explanations and API can be found on
+`readthedocs <http://febid.readthedocs.io>`_
 
-    Besides the graphical representation, a console is will display simulation info. It is important to keep an eye on it as
-    the deposition progress, execution speed and warnings and errors, if any occur, are output to the console.
+Usage
+-------
+
+In case of usage of this package for scientific purposes and publication, we kindly ask to cite:
+
+`Kuprava A., Huth M. Fast and Efficient Simulation of the FEBID Process with Thermal Effects.
+Nanomaterials, 2023, 13, 858 <https://doi.org/10.3390/nano13050858>`_

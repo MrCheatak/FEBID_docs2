@@ -49,14 +49,3 @@ Deposit parameters list:
 
 
 
-Heat capacity
-'''''''''''''''
-Target materials via FEBID are numerous: Pt, Au, Ag, Fe, Co, Re, Cu etc. Although it is a rare case,
-when the deposited material is pure and usually represents target material embedded into amorphous carbonaceous matrix.
-The heat capacity for such amorphous materials is estimated volumetrically:
-
-:math:`\overline{c}_p=V_A\cdot c_{p_A}+V_B\cdot c_{p_B}`,
-
-where
-    :math:`V_A` and :math:`V_B` are volume fractions of the phases
-    :math:`c_{p_A}` and :math:`c_{p_B}` are heat capacities of the phases A ans B

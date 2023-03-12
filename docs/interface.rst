@@ -33,7 +33,7 @@ i.e for a `series of simulation runs <series.html>`_.
 * Dwell time – the amount of time the beam sits or dwells at a single position.
 * Repeats – the number of times the pattern defined by shape, dwell time and pitch has to be repeated.
 * Stream file – allows specifying a special stream-file, that defines a more complex printing path. It represents a sequence of beam positions with dwell times. This option requires `Auto` to be chosen in the `Simulation volume` section.
-
+* HFW – Half Field Width sets the scale of the structure. Because pattern files are resolved in pixels, they have to be related to the actual distance units. This relation is provided by the magnification or HFW.
 
 **Beam and precursor:**
 
@@ -41,9 +41,10 @@ i.e for a `series of simulation runs <series.html>`_.
 * `Precursor parameters <precursor_file.html>`_ – a YAML (.yml) file with precursor(printing material) and deponat(printed material) properties.
 * Temperature tracking – check to enable calculation of the temperature profile and temperature dependency of the precursor coverage.
 
-    Corresponding precursor parameters have to be included in the parameter file in order for the temperature tracking to work.
+.. warning:: Corresponding precursor parameters have to be included in the parameter file in order for the temperature tracking to work.
 
-    If a loaded 3D structure does not have temperature profile data, it will be added automatically.
+
+.. note:: If a loaded 3D structure does not have temperature profile data, it will be added automatically.
 
 **Save file:**
 
@@ -58,9 +59,9 @@ VTK file option:
 
 Graphical:
     When 'Show the process' is checked to view the simulation process in real-time, a window with a 3D scene will open.
-    Refresh rate is set to 0.5 s, thus it may slow to interact with.
+    Refresh rate is set to 0.5 s, thus it may be slow to interact with.
     The scene is interactive, meaning it can be zoomed by scrolling, rotated  with a mouse, moved around (with Shift
-    pressed) and focused at the cursor by pressing 'f'.
+    pressed) and focused at the cursor by pressing 'F'.
     The coloring and the corresponding scale represents the concentration of the precursor at the surface.
     Thus, the 3D object displayed is not the solid structure itself, but it's whole surface, that follows the shape of
     the solid 3D object.
@@ -120,13 +121,15 @@ scripts or in ParaView®.
 
 Viewing simulation results:
 """""""""""""""""""""""""""""
-There are three options to inspect a 3D structure deposited by FEBID simulation. The first one is viewing a specific
+There are three options to inspect a 3D structure deposited by FEBID simulation.
+
+The first one is viewing a specific
 snapshot with all the corresponding data layers (precursor coverage, temperature etc.).
 
     ``python -m febid show_file``
 
 The second option is to view the process based on a series of structure snapshots. Unlike viewing a single file, only
-one data layer can be 'animated'
+one data layer can be 'animated'.
 
     ``python -m febid show_animation``
 
